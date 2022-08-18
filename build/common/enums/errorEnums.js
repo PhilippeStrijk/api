@@ -1,0 +1,32 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.ErrorTypes = exports.ErrorNames = void 0;
+var ErrorNames;
+(function (ErrorNames) {
+    ErrorNames["BadRequestError"] = "BadRequestError";
+    ErrorNames["RequestValidationError"] = "RequestValidationError";
+    ErrorNames["UnauthorizedError"] = "UnauthorizedError";
+    ErrorNames["ForbiddenError"] = "ForbiddenError";
+    ErrorNames["RouteNotFoundError"] = "RouteNotFoundError";
+    ErrorNames["ConflictError"] = "ConflictError";
+    ErrorNames["InternalServerError"] = "InternalServerError";
+})(ErrorNames = exports.ErrorNames || (exports.ErrorNames = {}));
+;
+var ErrorTypes;
+(function (ErrorTypes) {
+    ErrorTypes["BadRequest"] = "bad_request";
+    ErrorTypes["RequestValidation"] = "request_validation";
+    ErrorTypes["Unauthorized"] = "unauthorized";
+    ErrorTypes["Forbidden"] = "forbidden";
+    ErrorTypes["RouteNotFound"] = "route_not_found";
+    ErrorTypes["Conflict"] = "conflict";
+    ErrorTypes["InternalServer"] = "internal_server";
+    ErrorTypes["DBConnection"] = "db_connection_error";
+    ErrorTypes["MFANotEnabled"] = "mfa_not_enabled";
+    ErrorTypes["InvalidCredentials"] = "invalid_credentials";
+    ErrorTypes["InvalidPassword"] = "invalid_password";
+    ErrorTypes["InvalidEmail"] = "invalid_email";
+    ErrorTypes["InvalidOTP"] = "otp_code_invalid";
+    ErrorTypes["expiredOTP"] = "otp_code_expired";
+    ErrorTypes["sentOTP"] = "otp_code_already_sent";
+})(ErrorTypes = exports.ErrorTypes || (exports.ErrorTypes = {}));
