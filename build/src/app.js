@@ -30,6 +30,9 @@ app.use((0, cookie_session_1.default)({
     signed: false,
     secure: false
 }));
+app.get('/', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    res.status(200).send({ succes: true });
+}));
 app.use('/api', routes_1.authRoutes);
 app.use('/api', routes_1.mfaRoutes);
 app.use(common_1.currentUser);

@@ -1,5 +1,4 @@
 import * as dotenv from 'dotenv';
-import fs from 'fs';
 import { logger, } from '../common/logger/logger';
 import { InternalServerError } from '../common';
 import mongoose from 'mongoose';
@@ -21,9 +20,6 @@ const healthCheck = () => {
     if (!process.env.TWILIO_OTP_SID) throw new Error('TWILIO_OTP_SID is missing');
     if (!process.env.TWILIO_AUTH) throw new Error('TWILIO_AUTH is missing');
 
-    if (!fs.existsSync('../logs'))
-        fs.mkdirSync('../logs');
-    
     logger.debug(`[HEALTH CHECK] Health check successful`);    
 }
 
