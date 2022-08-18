@@ -36,7 +36,6 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const dotenv = __importStar(require("dotenv"));
-const fs_1 = __importDefault(require("fs"));
 const logger_1 = require("../common/logger/logger");
 const common_1 = require("../common");
 const mongoose_1 = __importDefault(require("mongoose"));
@@ -61,8 +60,6 @@ const healthCheck = () => {
         throw new Error('TWILIO_OTP_SID is missing');
     if (!process.env.TWILIO_AUTH)
         throw new Error('TWILIO_AUTH is missing');
-    if (!fs_1.default.existsSync('../logs'))
-        fs_1.default.mkdirSync('../logs');
     logger_1.logger.debug(`[HEALTH CHECK] Health check successful`);
 };
 const databaseConfig = () => __awaiter(void 0, void 0, void 0, function* () {
