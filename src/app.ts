@@ -20,6 +20,10 @@ app.use(cookieSession({
 
 
 //routes
+
+app.get('/',  async (req: Request, res: Response) => {
+    res.status(200).send({succes: true})
+});
 app.use('/api', authRoutes);
 app.use('/api', mfaRoutes);
 
