@@ -4,12 +4,15 @@
     "description": "web services taak",
     "main": "index.js",
     "scripts": {
-        "start": "cross-env NODE_ENV=PROD  node ./build/src/index.js",
+        "start": "cross-env NODE_ENV=production node ./build/src/index.js",
         "clean": "del /Q /S .\\build\\*",
         "build": " npm run clean && tsc -p tsconfig.prod.json",
         "dev": "cross-env NODE_ENV=DEV ts-node-dev --poll ./src/index.ts",
         "test:dev": "jest --watchAll --no-cache -c ./jest.config.ts",
         "test:ci": "jest --runInBand --detectOpenHandles --forceExit -c ./jest.config.ts"
+    },
+    "engines": {
+        "node": "16.x"
     },
     "keywords": [],
     "author": "Philippe Strijk",
