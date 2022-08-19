@@ -8,10 +8,9 @@ if (process.env.NODE_ENV === 'DEV') {
     dotenv.config({ path: __dirname + '/.env' });
 }
 
-const IP = "127.0.0.1";
-const PORT = parseInt(process.env.PORT!) || 80;
 
 const healthCheck = () => {
+    if (!process.env.PORT) throw new Error('PORT is missing');
     if (!process.env.NODE_ENV) throw new Error('NODE_ENV is missing');
     if (!process.env.JWT_KEY) throw new Error('JWT_KEY is missing');
     if (!process.env.MONGODB_URL) throw new Error('MONGODB_URL is missing');
@@ -33,7 +32,10 @@ const databaseConfig = async () => {
     }
 };
 
+
 const start = async () => {
+    const IP = "127.0.0.1";
+    const PORT = process.env.PORT || 80;
     healthCheck();
     await databaseConfig();
 
@@ -51,7 +53,7 @@ const start = async () => {
         });
     });
 
-    app.listen(PORT, IP, () => {
+    app.listen(PORT, () => {
         logger.debug(`[SERVER INFO] API running on ${IP}:${PORT}`);
     });
 };
