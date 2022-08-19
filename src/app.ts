@@ -17,7 +17,7 @@ const allowCrossDomain = (req:Request, res:Response, next: NextFunction) => {
 }
 app.set('trust proxy', true);
 app.use(cors({
-    origin: ["http://localhost:3000", "https://62ffb489613477006ac38997--marvelous-cupcake-a8a9a5.netlify.app"],
+    origin: "https://62ffb489613477006ac38997--marvelous-cupcake-a8a9a5.netlify.app",
     allowedHeaders: ['Content-Type', 'Authorization', 'Set-Cookie'],
     
 }))
