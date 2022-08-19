@@ -8,8 +8,19 @@ import cors from 'cors';
 
 const app = express();
 
+const allowCrossDomain = (req:Request, res:Response, next: NextFunction) => {
+    res.header('Access-Control-Allow-Origin', 'http://localhost:3000');
+    res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
+    res.header('Access-Control-Allow-Headers', 'Content-Type');
+
+    next();
+}
 app.set('trust proxy', true);
-app.use(cors({origin: ['*']}))
+app.use(cors({
+    origin: ["http://localhost:3000", "https://62ffb489613477006ac38997--marvelous-cupcake-a8a9a5.netlify.app"],
+    allowedHeaders: ['Content-Type', 'Authorization', 'Set-Cookie'],
+    
+}))
 //middlewares
 app.use(json());
 app.use(morganMiddleware);
@@ -18,12 +29,8 @@ app.use(cookieSession({
     secure: false
 }));
 
-
+app.use(allowCrossDomain);
 //routes
-
-app.get('/',  async (req: Request, res: Response) => {
-    res.status(200).send({succes: true})
-});
 app.use('/api', authRoutes);
 app.use('/api', mfaRoutes);
 
