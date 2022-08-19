@@ -8,8 +8,8 @@ if (process.env.NODE_ENV === 'DEV') {
     dotenv.config({ path: __dirname + '/.env' });
 }
 
-const PORT = 6000;
 const IP = "127.0.0.1";
+const PORT = parseInt(process.env.PORT!) || 80;
 
 const healthCheck = () => {
     if (!process.env.NODE_ENV) throw new Error('NODE_ENV is missing');
